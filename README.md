@@ -1,61 +1,94 @@
-# AI CRM HCP Module – Log Interaction Screen
+# AI-First CRM HCP Module – Log Interaction System
 
-## 🚀 Overview
-This project is an AI-first CRM system designed for logging Healthcare Professional (HCP) interactions.
+## Overview
 
-Users can log interactions in two ways:
-1. Manual form entry
-2. AI-powered conversational input
+This project is an AI-powered Customer Relationship Management (CRM) system designed for logging interactions with Healthcare Professionals (HCPs).
 
----
+It allows users to log interactions using:
+- A structured form
+- A conversational AI assistant
 
-## 🧠 Tech Stack
-- Frontend: React
-- Backend: FastAPI (Python)
-- AI Agent: LangGraph
-- LLM: Groq (llama-3.1-8b-instant)
-- Database: (In-memory for demo)
+The system converts unstructured natural language into structured CRM data using AI.
 
 ---
 
-## 🤖 AI Agent (LangGraph)
+## Key Features
 
-The agent processes user input and performs structured extraction.
-
-### Tools:
-1. Log Interaction Tool – Extracts structured data from chat
-2. Edit Interaction Tool – Updates interaction data
-3. Fetch History Tool – Retrieves past interactions
-4. Sentiment Analysis Tool – Detects sentiment
-5. Follow-up Tool – Suggests next actions
-
----
-
-## ⚠️ Note
-The originally specified model (gemma2-9b-it) is deprecated.  
-So, llama-3.1-8b-instant is used instead.
+- Log interactions with doctors (HCPs)
+- AI-powered interaction logging using natural language
+- Automatic extraction of:
+  - HCP Name
+  - Interaction Type
+  - Summary
+  - Sentiment
+- AI-generated follow-up suggestions
+- Multi-step AI workflow using LangGraph
+- Data storage using PostgreSQL
 
 ---
 
-## 🎯 Features
-- Dual input system (Form + Chat)
-- AI-powered extraction
-- Structured JSON output
-- Clean UI layout
+## AI Tools (LangGraph)
+
+The system uses 5 AI tools:
+
+1. **Log Interaction Tool**
+   - Extracts structured data from user input
+
+2. **Follow-up Tool**
+   - Suggests next actions
+
+3. **Sentiment Tool**
+   - Classifies sentiment (Positive/Neutral/Negative)
+
+4. **Summary Tool**
+   - Generates short summary
+
+5. **Recommendation Tool**
+   - Provides business recommendations
 
 ---
 
-## ▶️ How to Run
-
-### Backend
-cd backend  
-uvicorn main:app --reload  
+## Tech Stack
 
 ### Frontend
-cd frontend  
-npm start  
+- React.js
+- CSS
+
+### Backend
+- FastAPI (Python)
+
+### AI
+- LangGraph
+- Groq LLM (llama / gemma)
+
+### Database
+- PostgreSQL
 
 ---
 
-## 📹 Demo
-(Attach video link here)
+## Workflow
+
+1. User enters interaction (manual or AI chat)
+2. Request sent to FastAPI backend
+3. LangGraph processes input through multiple tools
+4. Structured output is generated
+5. Data is stored in database
+6. Results displayed on UI
+
+---
+
+## UI
+
+- Left Panel → Structured Interaction Form
+- Right Panel → AI Assistant (Chat-based logging)
+
+---
+
+## How to Run
+
+### Backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
